@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLD Agent: Business Lead Discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>BLD Agent</h1>
+    <span class="divider" aria-hidden="true"></span>
+    <p>Business Lead Discovery</p>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT: 5 inputs -->
+    <section class="panel" aria-labelledby="search-title">
+      <h2 id="search-title">Find leads</h2>
+
+      <form id="search-form" novalidate>
+        <div class="field">
+          <label for="area">Area</label>
+          <input id="area" name="area" type="text" placeholder="e.g. Coimbatore" autocomplete="off" required>
+          <small class="error" id="err-area"></small>
+        </div>
+
+        <div class="field">
+          <label for="radius">Radius</label>
+          <select id="radius" name="radius_km">
+            <option value="1">1 km</option>
+            <option value="3">3 km</option>
+            <option value="5" selected>5 km</option>
+            <option value="7">7 km</option>
+            <option value="10">10 km</option>
+          </select>
+          <small class="error" id="err-radius_km"></small>
+        </div>
+
+        <div class="field">
+          <label for="product">Product</label>
+          <input id="product" name="product" type="text" placeholder="e.g. Hospital Management System" autocomplete="off" required>
+          <small class="error" id="err-product"></small>
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <input id="category" name="category" type="text" placeholder="e.g. Hospitals, Clinics" autocomplete="off" required>
+          <small class="error" id="err-category"></small>
+        </div>
+
+        <div class="field">
+          <label for="exclusions">Exclusions</label>
+          <input id="exclusions" name="exclusions" type="text" placeholder="e.g. dental, veterinary, pharmacy" autocomplete="off">
+          <small class="hint">Separate words with commas. Leads matching them are left out.</small>
+        </div>
+
+        <button type="submit" id="submit-btn" class="primary-btn">Search leads</button>
+      </form>
+    </section>
+
+    <!-- RIGHT: live results -->
+    <section class="results" aria-live="polite">
+      <div class="results-head">
+        <h2>Leads <span id="count" class="count">0</span></h2>
+        <p id="status" class="status">Fill the form and start a search.</p>
+      </div>
+
+      <div id="choice" class="choice" hidden>
+        <p>More than one place matches. Pick the right one:</p>
+        <div id="choice-options"></div>
+      </div>
+
+      <div id="empty" class="empty">
+        <p>No leads yet. Each lead appears here as soon as it is verified, and stays on screen.</p>
+      </div>
+
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+
+  <footer class="osm-credit">
+    Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
