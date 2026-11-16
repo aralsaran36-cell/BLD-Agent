@@ -44,8 +44,6 @@ Open http://127.0.0.1:8000
 - JavaScript-rendered websites and non-standard contact URLs are missed.
 - Small villages have little OSM data.
 - Verification is source-count based. Field-wise verification is planned.
-- Category type filter on Google is only for "hospital".
-- Search history UI is not built yet (backend routes exist).
-
+  
 ## Attribution
 Map data (c) OpenStreetMap contributors (ODbL). Google Places data is used under Google Maps Platform terms.
