@@ -7,6 +7,7 @@ const countEl = document.getElementById("count");
 const cardsEl = document.getElementById("cards");
 const emptyEl = document.getElementById("empty");
 const choiceEl = document.getElementById("choice");
+const csvBtn = document.getElementById("csv-btn");
 const choiceOptionsEl = document.getElementById("choice-options");
 
 let source = null;
@@ -129,6 +130,7 @@ function resetResults() {
   leadCount = 0;
   countEl.textContent = "0";
   emptyEl.hidden = false;
+  csvBtn.disabled = true;
   choiceEl.hidden = true;
 }
 
@@ -163,6 +165,7 @@ function finish() {
   if (source) source.close();
   source = null;
   submitBtn.disabled = false;
+  csvBtn.disabled = leadCount === 0;
 }
 
 function showChoice(options) {
@@ -291,3 +294,10 @@ function addLeadCard(lead) {
 
   cardsEl.appendChild(card); // append only: old cards stay on screen
 }
+
+
+/* ---------- download full CSV ---------- */
+csvBtn.addEventListener("click", () => {
+  if (!searchId) return;
+  window.location.href = `/api/searches/${searchId}/export.csv`;
+});

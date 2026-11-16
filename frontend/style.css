@@ -206,3 +206,37 @@ input.invalid, select.invalid { border-color: var(--rejected); }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ===== CSV button ===== */
+.csv-btn {
+  margin: 10px 0 0;
+  padding: 8px 16px;
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--blue);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.csv-btn:hover:not(:disabled) { background: #eef3ff; }
+.csv-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ===== Status colours: light green / orange / red / grey ===== */
+.lead { color: #111827; }
+.lead .fcol dt,
+.lead .reason,
+.lead .reason em,
+.lead .foot,
+.lead .foot strong { color: #111827; }
+.lead .fcol .missing { color: #374151; font-style: italic; }
+
+.lead.verified { background: #f0fdf4; border-left-color: #16a34a; }
+.lead.partially_verified { background: #fff7ed; border-left-color: #f59e0b; }
+.lead.unverified { background: #fef2f2; border-left-color: #dc2626; }
+.lead.rejected { background: #f3f4f6; border-left-color: #6b7280; }
+
+.badge.verified { background: #bbf7d0; color: #111827; }
+.badge.partially_verified { background: #fed7aa; color: #111827; }
+.badge.unverified { background: #fecaca; color: #111827; }
+.badge.rejected { background: #d1d5db; color: #111827; }
